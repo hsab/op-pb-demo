@@ -23,7 +23,7 @@ import MetaHeader from '~/components/Post/MetaHeader';
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
