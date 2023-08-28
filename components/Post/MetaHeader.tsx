@@ -14,23 +14,25 @@ const MetaHeader = ({ post }: { post: PostType }) => {
         <div className="text-xs">{post.name}</div>
         <div className="flex flex-row text-gray-dark">
           {post.createdAt && (
+            <div className="text-xxs">
+              {spacetime(new Date())
+                .since(
+                  new Timestamp(
+                    post.createdAt.seconds,
+                    post.createdAt.nanoseconds,
+                  ).toDate(),
+                )
+                .rounded.replace('ago', '')}
+            </div>
+          )}
+          {post.category && (
             <>
-              <div className="text-xxs">
-                {spacetime(new Date())
-                  .since(
-                    new Timestamp(
-                      post.createdAt.seconds,
-                      post.createdAt.nanoseconds,
-                    ).toDate(),
-                  )
-                  .rounded.replace('ago', '')}
-              </div>
               <div className="flex flex-col items-center justify-center w-3">
                 <BsDot color="#606a6c" size="12px" />
               </div>
+              <div className="text-xxs">{post.category}</div>
             </>
           )}
-          <div className="text-xxs">{post.category}</div>
         </div>
       </div>
     </div>
