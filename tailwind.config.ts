@@ -19,6 +19,9 @@ const config: Config = {
         'blue-dark': '#0396A6',
         'blue-light': '#E0F2F4',
         teal: '#0396a6',
+        'priority-high': '#F2440588',
+        'priority-med': '#F2B70588',
+        'priority-low': '#AAB0B188',
       },
       boxShadow: {
         center: '0 10px 20px 5px rgba(0, 0, 0, 0.3)',
