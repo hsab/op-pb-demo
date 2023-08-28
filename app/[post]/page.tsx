@@ -136,7 +136,7 @@ const Page = ({ params }: { params: { post: string } }) => {
     <main className="flex flex-col justify-start w-full min-h-screen bg-white">
       {post && <Post post={post} />}
 
-      <div>
+      <div className="pb-4 mb-14">
         {comments.map((currComment) => {
           return (
             <div key={currComment.id} className="p-4 border-t">
@@ -176,7 +176,7 @@ const Page = ({ params }: { params: { post: string } }) => {
         })}
       </div>
 
-      <div className="fixed bottom-0 flex flex-row w-full gap-2 p-4 border-t">
+      <div className="fixed bottom-0 flex flex-row w-full gap-2 p-4 bg-white border-t">
         <textarea
           value={comment}
           placeholder="Write a comment"
