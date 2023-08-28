@@ -108,7 +108,7 @@ const RequestForm = ({
           }}
         />
 
-        <InputText
+        {/* <InputText
           name="image"
           label="Image URL"
           placeholder="https://example.com/image.jpg"
@@ -117,7 +117,7 @@ const RequestForm = ({
           onChange={(v) => {
             return v?.startsWith(' ') ? v.trim() : v;
           }}
-        />
+        /> */}
       </form>
 
       <button
