@@ -25,7 +25,6 @@ const Page = () => {
         currPosts.push({ id: doc.id, ...doc.data() } as PostType);
       });
       setPosts(currPosts);
-      console.log('Posts ', currPosts);
     });
 
     return () => {

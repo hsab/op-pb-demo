@@ -13,15 +13,15 @@ const RequestForm = ({
   onSubmitCallback: () => void;
 }) => {
   const { control, handleSubmit, trigger } = useForm<FormValues>();
-  const onSubmit = async (data: FormValues) => {
-    console.log(data);
 
+  const onSubmit = async (data: FormValues) => {
     const docRef = await addDoc(collection(db, 'posts'), {
       ...JSON.parse(JSON.stringify(data)),
       createdAt: serverTimestamp(),
       votes: 0,
       comments: 0,
     });
+
     console.log('Document written with ID: ', docRef.id);
 
     onSubmitCallback();
