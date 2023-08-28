@@ -145,7 +145,7 @@ const Page = ({ params }: { params: { post: string } }) => {
   if (!post) return <div />;
 
   return (
-    <main className="flex flex-col justify-start w-full min-h-screen bg-white">
+    <main className="flex flex-col justify-start w-full min-h-screen pt-2 bg-white">
       {post && <Post post={post} />}
 
       <div className="pb-4 mb-14">

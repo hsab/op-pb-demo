@@ -34,7 +34,7 @@ const Page = () => {
 
   return (
     <>
-      <main className="flex flex-col justify-start w-full min-h-screen bg-white">
+      <main className="flex flex-col justify-start w-full min-h-screen pt-2 bg-white">
         <Header />
 
         <div className="grid grid-cols-4 text-sm leading-4 text-charcoal">
@@ -63,7 +63,7 @@ const Page = () => {
         </div>
 
         <button
-          className="fixed bottom-0 right-0 flex flex-col items-center justify-center h-10 px-3 mb-5 mr-6 text-sm rounded-lg bg-blue-light text-blue-dark"
+          className="fixed bottom-0 right-0 flex flex-col items-center justify-center h-10 px-3 mb-5 mr-5 text-sm rounded-lg bg-blue-light text-blue-dark"
           onClick={() => setOpen(true)}
         >
           Make a request

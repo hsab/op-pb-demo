@@ -52,7 +52,7 @@ const InputText = <T extends FieldValues>(
                 onFieldChange(val);
                 validator(name, val);
               }}
-              className="bg-white-dark text-black p-2 rounded-lg w-full"
+              className="w-full p-2 text-black rounded-lg bg-white-dark"
               //   numberOfLines={lines}
               //   multiline={lines > 1}
             />
@@ -67,7 +67,7 @@ const InputText = <T extends FieldValues>(
                 onFieldChange(val);
                 validator(name, val);
               }}
-              className="bg-white-dark text-black p-2 rounded-lg w-full h-auto"
+              className="w-full h-auto p-2 text-black rounded-lg bg-white-dark"
             />
           )}
           {error && (
