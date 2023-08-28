@@ -41,7 +41,6 @@ const Page = ({ params }: { params: { post: string } }) => {
     let unsub2: Unsubscribe | undefined;
     if (params.post) {
       unsub1 = onSnapshot(doc(db, 'posts', params.post), (currDoc) => {
-        console.log('Posts ', currDoc.data());
         setPost({ ...currDoc.data(), id: params.post } as PostType);
       });
 
@@ -60,7 +59,6 @@ const Page = ({ params }: { params: { post: string } }) => {
           } as CommentType);
         });
         setComments(currComments);
-        console.log('Comments ', currComments);
       });
     }
 
@@ -76,7 +74,7 @@ const Page = ({ params }: { params: { post: string } }) => {
 
 	${JSON.stringify(post, null, 2)}
 	
-	Generate 3 unique and thoughtful comments that thoughtfully responds to the original post. Some comments should agree and some don't, justify the reasoning. Contain the comment within 240 characters. Also generate a unique and diverse name. Include name and comment in the following JSON format. 	Ensure JSON is valid
+	Generate 3 unique and thoughtful comments that thoughtfully responds to the original post. Some comments should agree and some don't, justify the reasoning. Contain the comment within 240 characters. Also generate a unique and diverse name. Include name and comment in the following JSON format. 	Ensure JSON is RFC8259 compliant following this format without deviation.
 	
 	[
 		{
@@ -95,6 +93,9 @@ const Page = ({ params }: { params: { post: string } }) => {
         },
       ],
       model: 'gpt-3.5-turbo',
+      frequency_penalty: 1,
+      presence_penalty: 1,
+      temperature: 1,
     });
 
     setIsCompleting(false);
@@ -103,6 +104,8 @@ const Page = ({ params }: { params: { post: string } }) => {
       const completions = JSON.parse(
         completion.choices?.[0]?.message.content || '',
       );
+
+      console.log('OpenAI Completions:', completions);
 
       const randomElement =
         completions[Math.floor(Math.random() * completions.length)];
