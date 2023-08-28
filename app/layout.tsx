@@ -1,9 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
+import 'react-spring-bottom-sheet/dist/style.css';
 
-const inter = Inter({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+const roboto = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
   style: ['normal'],
   subsets: ['latin'],
   display: 'swap',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={roboto.className}>{children}</body>
     </html>
   );
 };
