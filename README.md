@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[Participatory Budgeting](https://en.wikipedia.org/wiki/Participatory_budgeting) is a democratic process where community members directly decide how to allocate a portion of a public budget. This repository contains software prototype for a hypothetical Participatory Budgeting (PB) application that has partially
+been designed.
+
+Next.js is used as the foundation of this web application. The application is a platform where users can view, upvote, and comment on budget requests and make new requests. The application integrates with OpenAI to generate comments and uses Firebase for realtime data storage and retrieval.
 
 ## Getting Started
 
@@ -14,21 +17,40 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Main Dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Next.js**: A popular React framework for server-rendered applications.
+- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
+- **Firebase**: Used for database operations, for storing and realtime retrieval of data.
+- **OpenAI**: Integrated for generating content and responses.
+- **React Hook Form**: For stateful form handling.
+- **React Spring Bottom Sheet**: Used for displaying modal and overlay content.
+- **Zustand**: A small, fast, and scalable bearbones state-management solution.
 
-## Learn More
+## Code Overview:
 
-To learn more about Next.js, take a look at the following resources:
+- **`app/page.tsx`**: The main page of the application, imports and uses various components to render the main content, and display list of requests.
+- **`app/[post]/page.tsx`**: Defines a dynamic route for individual requests. Imports components and utilities to render a specific request page.
+- **`components/BottomSheet.tsx`**: A UI element representing a bottom sheet. Slides up from the bottom to display additional content.
+- **`components/Header.tsx`** Represents the application's header.
+- **`components/Dropdown.tsx`** A dropdown component for selecting items from a list, used in the header.
+- **`components/Post/Post.tsx`** Represents a full request. Combines other components like `Avatar`, `MetaHeader`, and `Title` to render a request.
+- **`components/Post/PostCard.tsx`** Represents a summarized version of a request, a preview card used for the homepage.
+- **`components/Post/Avatar.tsx`** Displays an avatar, for a request's author.
+- **`components/Post/MetaHeader.tsx`** Displays metadata about a request, such as the author's name, publication date, and categories.
+- **`components/Post/Title.tsx`** Represents a request's title.
+- **`components/RequestForm/RequestForm.tsx`** A form for users to submit requests. Uses other `Input` components for user input.
+- **`components/RequestForm/InputLabel.tsx`** A label for input fields in a form.
+- **`components/RequestForm/InputPriority.tsx`** An input field for setting the priority of a request or task.
+- **`components/RequestForm/InputText.tsx`** A text input field component.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configuration and settings files:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `package.json`
+- `next.config.js`
+- `prettier.config.js`
+- `.eslintrc.json`
+- `tsconfig.json`
+- `tailwind.config.ts`
+- `postcss.config.js`
+- `.vscode/settings.json`
