@@ -76,12 +76,14 @@ const Page = ({ params }: { params: { post: string } }) => {
 
 	${JSON.stringify(post, null, 2)}
 	
-	Generate a unique and thoughtful comment as well as a unique and diverse name in the following JSON format within 240 characters. 	Ensure JSON is valid
+	Generate 3 unique and thoughtful comments that thoughtfully responds to the original post. Some comments should agree and some don't, justify the reasoning. Contain the comment within 240 characters. Also generate a unique and diverse name. Include name and comment in the following JSON format. 	Ensure JSON is valid
 	
-	{
-	  name: string,
-	  comment: string
-	}
+	[
+		{
+			name: string,
+			comment: string
+		  }
+	]
 	`;
 
     setIsCompleting(true);
@@ -94,12 +96,19 @@ const Page = ({ params }: { params: { post: string } }) => {
       ],
       model: 'gpt-3.5-turbo',
     });
+
     setIsCompleting(false);
 
     try {
-      const obj = JSON.parse(completion.choices?.[0]?.message.content || '');
-      setComment(obj.comment);
-      setName(obj.name);
+      const completions = JSON.parse(
+        completion.choices?.[0]?.message.content || '',
+      );
+
+      const randomElement =
+        completions[Math.floor(Math.random() * completions.length)];
+
+      setComment(randomElement.comment);
+      setName(randomElement.name);
     } catch (error) {
       /* empty */
     }
